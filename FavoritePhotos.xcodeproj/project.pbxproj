@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		144810F21AC4912400F26321 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 144810F11AC4912400F26321 /* main.m */; };
 		144810F51AC4912400F26321 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 144810F41AC4912400F26321 /* AppDelegate.m */; };
-		144810F81AC4912400F26321 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144810F71AC4912400F26321 /* ViewController.m */; };
 		144810FB1AC4912400F26321 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 144810F91AC4912400F26321 /* Main.storyboard */; };
 		144810FD1AC4912400F26321 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 144810FC1AC4912400F26321 /* Images.xcassets */; };
 		144811001AC4912400F26321 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144810FE1AC4912400F26321 /* LaunchScreen.xib */; };
 		1448110C1AC4912400F26321 /* FavoritePhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448110B1AC4912400F26321 /* FavoritePhotosTests.m */; };
+		144811171AC4B2C800F26321 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144811161AC4B2C800F26321 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		144810F11AC4912400F26321 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		144810F31AC4912400F26321 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		144810F41AC4912400F26321 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		144810F61AC4912400F26321 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		144810F71AC4912400F26321 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		144810FA1AC4912400F26321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		144810FC1AC4912400F26321 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		144810FF1AC4912400F26321 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		144811051AC4912400F26321 /* FavoritePhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoritePhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1448110A1AC4912400F26321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1448110B1AC4912400F26321 /* FavoritePhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritePhotosTests.m; sourceTree = "<group>"; };
+		144811151AC4B2C800F26321 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
+		144811161AC4B2C800F26321 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			children = (
 				144810F31AC4912400F26321 /* AppDelegate.h */,
 				144810F41AC4912400F26321 /* AppDelegate.m */,
-				144810F61AC4912400F26321 /* ViewController.h */,
-				144810F71AC4912400F26321 /* ViewController.m */,
+				144811151AC4B2C800F26321 /* RootViewController.h */,
+				144811161AC4B2C800F26321 /* RootViewController.m */,
 				144810F91AC4912400F26321 /* Main.storyboard */,
 				144810FC1AC4912400F26321 /* Images.xcassets */,
 				144810FE1AC4912400F26321 /* LaunchScreen.xib */,
@@ -219,9 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				144810F81AC4912400F26321 /* ViewController.m in Sources */,
 				144810F51AC4912400F26321 /* AppDelegate.m in Sources */,
 				144810F21AC4912400F26321 /* main.m in Sources */,
+				144811171AC4B2C800F26321 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
