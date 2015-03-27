@@ -14,6 +14,8 @@
 		144811001AC4912400F26321 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144810FE1AC4912400F26321 /* LaunchScreen.xib */; };
 		1448110C1AC4912400F26321 /* FavoritePhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448110B1AC4912400F26321 /* FavoritePhotosTests.m */; };
 		144811171AC4B2C800F26321 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144811161AC4B2C800F26321 /* RootViewController.m */; };
+		5E6453C21AC5E6B500CCC65B /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6453C11AC5E6B500CCC65B /* CollectionViewController.m */; };
+		5E6453C51AC5E6F900CCC65B /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6453C41AC5E6F900CCC65B /* TableViewController.m */; };
 		6B5617821AC593EE001EA29C /* BSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B56177D1AC593EE001EA29C /* BSDataManager.m */; };
 		6B5617831AC593EE001EA29C /* FPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B56177F1AC593EE001EA29C /* FPGroup.m */; };
 		6B5617841AC593EE001EA29C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617811AC593EE001EA29C /* Photo.m */; };
@@ -45,6 +47,10 @@
 		1448110B1AC4912400F26321 /* FavoritePhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritePhotosTests.m; sourceTree = "<group>"; };
 		144811151AC4B2C800F26321 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		144811161AC4B2C800F26321 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		5E6453C01AC5E6B500CCC65B /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		5E6453C11AC5E6B500CCC65B /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		5E6453C31AC5E6F900CCC65B /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		5E6453C41AC5E6F900CCC65B /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		6B56177C1AC593EE001EA29C /* BSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSDataManager.h; path = FavoritePhotos/Model/BSDataManager.h; sourceTree = "<group>"; };
 		6B56177D1AC593EE001EA29C /* BSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BSDataManager.m; path = FavoritePhotos/Model/BSDataManager.m; sourceTree = "<group>"; };
 		6B56177E1AC593EE001EA29C /* FPGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPGroup.h; path = FavoritePhotos/Model/FPGroup.h; sourceTree = "<group>"; };
@@ -151,6 +157,10 @@
 			children = (
 				144811151AC4B2C800F26321 /* RootViewController.h */,
 				144811161AC4B2C800F26321 /* RootViewController.m */,
+				5E6453C31AC5E6F900CCC65B /* TableViewController.h */,
+				5E6453C41AC5E6F900CCC65B /* TableViewController.m */,
+				5E6453C01AC5E6B500CCC65B /* CollectionViewController.h */,
+				5E6453C11AC5E6B500CCC65B /* CollectionViewController.m */,
 				6B5617861AC59440001EA29C /* FPCollectionView.h */,
 				6B5617871AC59440001EA29C /* FPCollectionView.m */,
 				6B5617881AC59440001EA29C /* FPCollectionViewCell.h */,
@@ -271,11 +281,13 @@
 				6B5617841AC593EE001EA29C /* Photo.m in Sources */,
 				6B5617831AC593EE001EA29C /* FPGroup.m in Sources */,
 				6B5617821AC593EE001EA29C /* BSDataManager.m in Sources */,
+				5E6453C51AC5E6F900CCC65B /* TableViewController.m in Sources */,
 				144810F51AC4912400F26321 /* AppDelegate.m in Sources */,
 				144810F21AC4912400F26321 /* main.m in Sources */,
 				144811171AC4B2C800F26321 /* RootViewController.m in Sources */,
 				6B56178B1AC59440001EA29C /* FPCollectionViewCell.m in Sources */,
 				6B56178A1AC59440001EA29C /* FPCollectionView.m in Sources */,
+				5E6453C21AC5E6B500CCC65B /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FavoritePhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -410,6 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FavoritePhotos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

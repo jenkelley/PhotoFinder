@@ -7,8 +7,17 @@
 //
 
 #import "RootViewController.h"
+#import "BSDataManager.h"
+#import "FPGroup.h"
+#import "Photo.h"
+#import "FPCollectionView.h"
+#import "FPCollectionViewCell.h"
 
-@interface RootViewController ()
+@interface RootViewController ()<BSDataDelegate>
+@property NSArray *photos;
+@property NSArray *groups;
+@property (weak, nonatomic) IBOutlet UIButton *onPhotosButtonTapped;
+@property (weak, nonatomic) IBOutlet UIButton *onFavoriteButtonTapped;
 
 @end
 
@@ -16,12 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 /*
