@@ -14,6 +14,11 @@
 		144811001AC4912400F26321 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144810FE1AC4912400F26321 /* LaunchScreen.xib */; };
 		1448110C1AC4912400F26321 /* FavoritePhotosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1448110B1AC4912400F26321 /* FavoritePhotosTests.m */; };
 		144811171AC4B2C800F26321 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144811161AC4B2C800F26321 /* RootViewController.m */; };
+		6B5617821AC593EE001EA29C /* BSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B56177D1AC593EE001EA29C /* BSDataManager.m */; };
+		6B5617831AC593EE001EA29C /* FPGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B56177F1AC593EE001EA29C /* FPGroup.m */; };
+		6B5617841AC593EE001EA29C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617811AC593EE001EA29C /* Photo.m */; };
+		6B56178A1AC59440001EA29C /* FPCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617871AC59440001EA29C /* FPCollectionView.m */; };
+		6B56178B1AC59440001EA29C /* FPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617891AC59440001EA29C /* FPCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,18 @@
 		144811051AC4912400F26321 /* FavoritePhotosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoritePhotosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1448110A1AC4912400F26321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1448110B1AC4912400F26321 /* FavoritePhotosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritePhotosTests.m; sourceTree = "<group>"; };
-		144811151AC4B2C800F26321 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../RootViewController.h; sourceTree = "<group>"; };
-		144811161AC4B2C800F26321 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../RootViewController.m; sourceTree = "<group>"; };
+		144811151AC4B2C800F26321 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		144811161AC4B2C800F26321 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		6B56177C1AC593EE001EA29C /* BSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSDataManager.h; path = FavoritePhotos/Model/BSDataManager.h; sourceTree = "<group>"; };
+		6B56177D1AC593EE001EA29C /* BSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BSDataManager.m; path = FavoritePhotos/Model/BSDataManager.m; sourceTree = "<group>"; };
+		6B56177E1AC593EE001EA29C /* FPGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPGroup.h; path = FavoritePhotos/Model/FPGroup.h; sourceTree = "<group>"; };
+		6B56177F1AC593EE001EA29C /* FPGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPGroup.m; path = FavoritePhotos/Model/FPGroup.m; sourceTree = "<group>"; };
+		6B5617801AC593EE001EA29C /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = FavoritePhotos/Model/Photo.h; sourceTree = "<group>"; };
+		6B5617811AC593EE001EA29C /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = FavoritePhotos/Model/Photo.m; sourceTree = "<group>"; };
+		6B5617861AC59440001EA29C /* FPCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPCollectionView.h; path = FavoritePhotos/Controller/FPCollectionView.h; sourceTree = "<group>"; };
+		6B5617871AC59440001EA29C /* FPCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPCollectionView.m; path = FavoritePhotos/Controller/FPCollectionView.m; sourceTree = "<group>"; };
+		6B5617881AC59440001EA29C /* FPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPCollectionViewCell.h; path = FavoritePhotos/Controller/FPCollectionViewCell.h; sourceTree = "<group>"; };
+		6B5617891AC59440001EA29C /* FPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPCollectionViewCell.m; path = FavoritePhotos/Controller/FPCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +78,9 @@
 		144810E31AC4912400F26321 = {
 			isa = PBXGroup;
 			children = (
+				6B56177B1AC593D5001EA29C /* Model */,
+				6B56178C1AC59459001EA29C /* View */,
+				6B5617851AC5942D001EA29C /* Controller */,
 				144810EE1AC4912400F26321 /* FavoritePhotos */,
 				144811081AC4912400F26321 /* FavoritePhotosTests */,
 				144810ED1AC4912400F26321 /* Products */,
@@ -83,11 +101,7 @@
 			children = (
 				144810F31AC4912400F26321 /* AppDelegate.h */,
 				144810F41AC4912400F26321 /* AppDelegate.m */,
-				144811151AC4B2C800F26321 /* RootViewController.h */,
-				144811161AC4B2C800F26321 /* RootViewController.m */,
-				144810F91AC4912400F26321 /* Main.storyboard */,
 				144810FC1AC4912400F26321 /* Images.xcassets */,
-				144810FE1AC4912400F26321 /* LaunchScreen.xib */,
 				144810EF1AC4912400F26321 /* Supporting Files */,
 			);
 			path = FavoritePhotos;
@@ -117,6 +131,41 @@
 				1448110A1AC4912400F26321 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B56177B1AC593D5001EA29C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6B56177C1AC593EE001EA29C /* BSDataManager.h */,
+				6B56177D1AC593EE001EA29C /* BSDataManager.m */,
+				6B56177E1AC593EE001EA29C /* FPGroup.h */,
+				6B56177F1AC593EE001EA29C /* FPGroup.m */,
+				6B5617801AC593EE001EA29C /* Photo.h */,
+				6B5617811AC593EE001EA29C /* Photo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6B5617851AC5942D001EA29C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				144811151AC4B2C800F26321 /* RootViewController.h */,
+				144811161AC4B2C800F26321 /* RootViewController.m */,
+				6B5617861AC59440001EA29C /* FPCollectionView.h */,
+				6B5617871AC59440001EA29C /* FPCollectionView.m */,
+				6B5617881AC59440001EA29C /* FPCollectionViewCell.h */,
+				6B5617891AC59440001EA29C /* FPCollectionViewCell.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		6B56178C1AC59459001EA29C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				144810F91AC4912400F26321 /* Main.storyboard */,
+				144810FE1AC4912400F26321 /* LaunchScreen.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5617841AC593EE001EA29C /* Photo.m in Sources */,
+				6B5617831AC593EE001EA29C /* FPGroup.m in Sources */,
+				6B5617821AC593EE001EA29C /* BSDataManager.m in Sources */,
 				144810F51AC4912400F26321 /* AppDelegate.m in Sources */,
 				144810F21AC4912400F26321 /* main.m in Sources */,
 				144811171AC4B2C800F26321 /* RootViewController.m in Sources */,
+				6B56178B1AC59440001EA29C /* FPCollectionViewCell.m in Sources */,
+				6B56178A1AC59440001EA29C /* FPCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +304,7 @@
 				144810FA1AC4912400F26321 /* Base */,
 			);
 			name = Main.storyboard;
+			path = FavoritePhotos;
 			sourceTree = "<group>";
 		};
 		144810FE1AC4912400F26321 /* LaunchScreen.xib */ = {
@@ -258,6 +313,7 @@
 				144810FF1AC4912400F26321 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = FavoritePhotos;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,6 +468,7 @@
 				144811111AC4912400F26321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		144811121AC4912400F26321 /* Build configuration list for PBXNativeTarget "FavoritePhotosTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +477,7 @@
 				144811141AC4912400F26321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

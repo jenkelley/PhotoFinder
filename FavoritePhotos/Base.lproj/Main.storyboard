@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -82,10 +83,10 @@
                                 <exclude reference="wKC-1g-yAq"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bDi-gf-SbC"/>
                                 <exclude reference="cYt-lg-XXC"/>
                                 <exclude reference="rFD-DU-rEX"/>
                                 <exclude reference="x26-Ho-Rhf"/>
+                                <exclude reference="bDi-gf-SbC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -94,10 +95,10 @@
                                 <include reference="wKC-1g-yAq"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bDi-gf-SbC"/>
                                 <include reference="cYt-lg-XXC"/>
                                 <include reference="rFD-DU-rEX"/>
                                 <include reference="x26-Ho-Rhf"/>
+                                <include reference="bDi-gf-SbC"/>
                             </mask>
                         </variation>
                     </view>
@@ -126,6 +127,7 @@
                         <viewControllerLayoutGuide type="bottom" id="B2I-GU-ohU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qmx-r9-rdq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5ha-Lw-nPx">
@@ -182,6 +184,7 @@
                                 <exclude reference="238-BK-qnh"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="QzX-NG-dXt"/>
                                 <exclude reference="42K-0j-lvp"/>
                                 <exclude reference="I0X-Xs-KJu"/>
                                 <exclude reference="WFR-qf-cUQ"/>
@@ -189,7 +192,6 @@
                                 <exclude reference="LYc-gW-dDv"/>
                                 <exclude reference="Wwz-64-6Om"/>
                                 <exclude reference="vEb-p6-IWW"/>
-                                <exclude reference="QzX-NG-dXt"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -198,6 +200,7 @@
                                 <include reference="238-BK-qnh"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="QzX-NG-dXt"/>
                                 <include reference="42K-0j-lvp"/>
                                 <include reference="I0X-Xs-KJu"/>
                                 <include reference="WFR-qf-cUQ"/>
@@ -205,7 +208,6 @@
                                 <include reference="LYc-gW-dDv"/>
                                 <include reference="Wwz-64-6Om"/>
                                 <include reference="vEb-p6-IWW"/>
-                                <include reference="QzX-NG-dXt"/>
                             </mask>
                         </variation>
                     </view>
