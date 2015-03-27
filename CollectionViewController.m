@@ -34,7 +34,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return nil;
+    return 0;
 }
 
 
