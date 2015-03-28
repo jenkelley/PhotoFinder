@@ -10,5 +10,6 @@
 
 @interface CollectionViewController : UIViewController
 @property NSArray *photos;
+@property NSMutableArray *photoFavorites;
 
 @end

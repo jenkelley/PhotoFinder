@@ -30,7 +30,7 @@
 
 
 
-
+    self.photoFavorites = [NSMutableArray new];
 
 
 }
@@ -74,10 +74,14 @@
 
     if (photoz.favoriteBool == NO) {
         photoz.favoriteBool = YES;
+        NSLog(@"FAVORITE FOREVER");
+        [self.photoFavorites addObject:photoz];
         
     } else {
         photoz.favoriteBool = NO;
+        [self.photoFavorites removeObject:photoz];
     }
+    NSLog(@"%lu", (unsigned long)self.photoFavorites.count);
 }
 
 /*
