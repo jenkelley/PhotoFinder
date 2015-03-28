@@ -26,14 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    BSDataManager *dataManager = [BSDataManager new];
-    dataManager.delegate = self;
-    [dataManager getPhotoData];
-    NSLog(@"%lu", (unsigned long)self.photos.count);
 
-  //  [dataManager getGroupData];
-    self.groups = [NSArray new];
-    self.photos = [NSArray new];
+    self.photoFavorites = [NSArray new];
 }
 
 
@@ -42,17 +36,13 @@
 
 }
 
-- (void)gotPhotoData:(id)array {
-    self.Photos = array;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+    CollectionViewController *cvc = segue.destinationViewController;
+    cvc.photos = self.photoFavorites;
 }
 
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//
-//    CollectionViewController *cvc = segue.destinationViewController;
-//    cvc.photos = self.photos;
-//}
 /*
 
 #pragma mark - Navigation

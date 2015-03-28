@@ -29,7 +29,6 @@
     self.searchBar.delegate = self;
     self.bsDataManager = [BSDataManager new];
     self.bsDataManager.delegate = self;
-    [self.bsDataManager getPhotoData];
 
 
     //[self.bsDataManager getGroupData:@""];

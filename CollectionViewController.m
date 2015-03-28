@@ -26,7 +26,7 @@
     BSDataManager *dataManager = [BSDataManager new];
     dataManager.delegate = self;
 
-    [dataManager getPhotoData];
+    [dataManager getPhotoData:@"sailboat"];
 
 
 
