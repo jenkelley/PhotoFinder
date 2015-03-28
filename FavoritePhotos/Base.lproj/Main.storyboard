@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -69,7 +69,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="31c-8B-igc" kind="show" id="mdK-NB-Hui"/>
+                                    <segue destination="31c-8B-igc" kind="show" identifier="GroupsSegue" id="mdK-NB-Hui"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -168,7 +168,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3833451705" green="0.0" blue="0.02837547268" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="OE4-3m-TpS" kind="show" id="YLT-Gk-nZk"/>
+                                            <segue destination="OE4-3m-TpS" kind="show" identifier="GroupToPhotosSegue" id="YLT-Gk-nZk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

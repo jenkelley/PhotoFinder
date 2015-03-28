@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RootViewController : UIViewController
-@property NSArray *photoFavorites;
+@property NSMutableArray *photoFavorites;
 
 @end

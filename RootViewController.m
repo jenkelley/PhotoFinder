@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.photoFavorites = [NSArray new];
+    self.photoFavorites = [NSMutableArray new];
 }
 
 
@@ -37,9 +37,14 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"GroupsSegue"]) {
+        TableViewController *tvc = segue.destinationViewController;
+        //tvc.photos = self.photoFavorites;
+    } else {
+        CollectionViewController *cvc = segue.destinationViewController;
+        //cvc.photos = self.photoFavorites;
+    }
 
-//    CollectionViewController *cvc = segue.destinationViewController;
-//    cvc.photos = self.photoFavorites;
 }
 
 
