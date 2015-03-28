@@ -69,7 +69,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="31c-8B-igc" kind="show" identifier="GroupsSegue" id="mdK-NB-Hui"/>
+                                    <segue destination="31c-8B-igc" kind="show" id="mdK-NB-Hui"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -168,7 +168,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3833451705" green="0.0" blue="0.02837547268" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="OE4-3m-TpS" kind="show" identifier="GroupToPhotosSegue" id="YLT-Gk-nZk"/>
+                                            <segue destination="OE4-3m-TpS" kind="show" id="YLT-Gk-nZk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
