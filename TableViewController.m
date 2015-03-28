@@ -61,7 +61,7 @@
     FPGroup *fgGroup = [FPGroup new];
     fgGroup = [self.groups objectAtIndex:indexPath.row];
     cell.textLabel.text = fgGroup.name;
-    //cell.detailTextLabel.text = fgGroup.mediaCount;
+    cell.detailTextLabel.text = fgGroup.mediaCount;
     return cell;
 }
 
