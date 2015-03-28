@@ -287,7 +287,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dTg-1P-o7j" customClass="FPCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.429983428" green="0.26322746619999998" blue="0.077239764990000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rbV-v2-0uF">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rbV-v2-0uF">
                                     <size key="itemSize" width="399" height="404"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -320,6 +320,9 @@
                                                 <include reference="iKy-f7-jUq"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <outlet property="imageView" destination="iKy-f7-jUq" id="7ee-XT-g9D"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -393,6 +396,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="dTg-1P-o7j" id="YHg-pB-tw5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yh-v6-yrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4pB-84-H7Q" userLabel="Exit" sceneMemberID="exit"/>
@@ -424,6 +430,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YLT-Gk-nZk"/>
+        <segue reference="wPL-VU-ZgF"/>
     </inferredMetricsTieBreakers>
 </document>
