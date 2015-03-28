@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionViewController : UIViewController
+@property NSArray *photoArray;
 
 @end

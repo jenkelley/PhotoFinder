@@ -7,6 +7,9 @@
 //
 
 #import "CollectionViewController.h"
+#import "Photo.h"
+#import "FPCollectionViewCell.h"
+#import "CollectionViewController.h"
 
 @interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -16,18 +19,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+
+    //need to set array here.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
+    FPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
 
+    Photo *photo = [self.photoArray objectAtIndex:indexPath.row];
+
+
+    cell.urlLabel.text = photo.standardImageUrl;
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photo.standardImageUrl]];
+
+    cell.imageView.image = [UIImage imageWithData:imageData];
 
     return cell;
 }

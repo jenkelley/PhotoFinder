@@ -10,7 +10,7 @@
 #import "BSDataManager.h"
 #import "FPGroup.h"
 #import "Photo.h"
-#import "FPCollectionView.h"
+#import "CollectionViewController.h"
 #import "FPCollectionViewCell.h"
 
 @interface RootViewController ()<BSDataDelegate>
@@ -25,10 +25,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    BSDataManager *dataManager = [BSDataManager new];
+    dataManager.delegate = self;
+    [dataManager getPhotoData];
+    NSLog(@"%lu", (unsigned long)self.photos.count);
 
+  //  [dataManager getGroupData];
 
 }
 
+
+- (void)gotPhotoData:(id)array {
+    self.Photos = array;
+  //  CollectionViewController *collectionView = [CollectionViewController new];
+  //  [collectionView reloadData];
+}
+//
+//-(IBAction)onPhotosButtonTapped:(id)sender{
+//    self.photos = [[NSArray alloc] initWithArray:[self gotPhotoData:self.photos]];
+//}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    CollectionViewController *cvc = segue.destinationViewController;
+    cvc.photoArray = self.photos;
+}
 /*
 #pragma mark - Navigation
 

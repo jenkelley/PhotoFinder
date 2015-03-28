@@ -17,10 +17,7 @@
 @property NSString *latitude;
 @property NSString *standardImageUrl;
 @property int arrayIndex;
-//@property NSString *ctaStopName;
-//@property NSString *interModal;
-//@property NSString *address;
-//@property BOOL isMetra;
+
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary arrayIndex:(int)arrayIndex;
 - (NSString *)getProperty:(NSString *)propertyName;
