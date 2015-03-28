@@ -12,10 +12,11 @@
 #import "Photo.h"
 #import "CollectionViewController.h"
 #import "FPCollectionViewCell.h"
+#import "FPCollectionView.h"
+#import "TableViewController.h"
+
 
 @interface RootViewController ()<BSDataDelegate>
-@property NSArray *photos;
-@property NSArray *groups;
 @property (weak, nonatomic) IBOutlet UIButton *onPhotosButtonTapped;
 @property (weak, nonatomic) IBOutlet UIButton *onFavoriteButtonTapped;
 
@@ -31,32 +32,36 @@
     NSLog(@"%lu", (unsigned long)self.photos.count);
 
   //  [dataManager getGroupData];
-
+    self.groups = [NSArray new];
+    self.photos = [NSArray new];
 }
 
+
+
+- (IBAction)unwindToRootController:(UIStoryboardSegue *)sender {
+
+}
 
 - (void)gotPhotoData:(id)array {
     self.Photos = array;
-  //  CollectionViewController *collectionView = [CollectionViewController new];
-  //  [collectionView reloadData];
+
 }
+
+
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 //
-//-(IBAction)onPhotosButtonTapped:(id)sender{
-//    self.photos = [[NSArray alloc] initWithArray:[self gotPhotoData:self.photos]];
+//    CollectionViewController *cvc = segue.destinationViewController;
+//    cvc.photos = self.photos;
 //}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    CollectionViewController *cvc = segue.destinationViewController;
-    cvc.photoArray = self.photos;
-}
 /*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    TableViewController *tbc = [TableViewController new];
+    tbc = segue.destinationViewController;
+    //tbc.photos = self.photos;
+    //tbc.groups = self.groups;
 }
 */
 

@@ -7,11 +7,12 @@
 //
 
 #import "CollectionViewController.h"
+
+#import "BSDataManager.h"
 #import "Photo.h"
 #import "FPCollectionViewCell.h"
-#import "CollectionViewController.h"
 
-@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate>
 
 @end
 
@@ -20,16 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    BSDataManager *dataManager = [BSDataManager new];
+    dataManager.delegate = self;
+
+    [dataManager getPhotoData];
+
+
+
+}
+
+- (void)gotPhotoData:(id)array {
+    self.photos = array;
+    // reload
+}
+
 
     //need to set array here.
-}
+
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     FPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
 
-    Photo *photo = [self.photoArray objectAtIndex:indexPath.row];
+    Photo *photo = [self.photos objectAtIndex:indexPath.row];
 
 
     cell.urlLabel.text = photo.standardImageUrl;

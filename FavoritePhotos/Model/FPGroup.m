@@ -15,7 +15,7 @@
     if (self) {
         self.dictionary = dictionary;
         self.name = [self.dictionary objectForKey:@"name"];
-        self.mediaCount = [self.dictionary objectForKey:@"media_count"];
+        self.mediaCount = [[self.dictionary objectForKey:@"media_count"] stringValue];
         //        self.interModal = [self.dictionary objectForKey:@"inter_modal"];
         //        self.address = [self.dictionary objectForKey:@"_address"];
         //        self.isMetra = [[self.dictionary objectForKey:@"inter_modal"] isEqualToString:@"Metra"];

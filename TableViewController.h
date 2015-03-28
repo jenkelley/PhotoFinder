@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TableViewController : UIViewController
+@property NSArray *photos;
+@property NSArray *groups;
 
 @end
