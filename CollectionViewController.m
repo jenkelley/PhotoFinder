@@ -11,9 +11,11 @@
 #import "BSDataManager.h"
 #import "Photo.h"
 #import "FPCollectionViewCell.h"
+#import "FPCollectionView.h"
 
 @interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate>
-
+@property (strong, nonatomic) IBOutlet FPCollectionView *collectionView;
+@property FPCollectionViewCell *collectionCell;
 @end
 
 @implementation CollectionViewController
@@ -28,10 +30,16 @@
 
 
 
+
+
+
 }
 
 - (void)gotPhotoData:(id)array {
     self.photos = array;
+    [self.collectionView reloadData];
+  //  [self.collectionCell reloadInputViews];
+
     // reload
 }
 
@@ -42,22 +50,23 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FPCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
+    self.collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
 
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
 
 
-    cell.urlLabel.text = photo.standardImageUrl;
+    self.collectionCell.urlLabel.text = photo.standardImageUrl;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photo.standardImageUrl]];
 
-    cell.imageView.image = [UIImage imageWithData:imageData];
+    self.collectionCell.imageView.image = [UIImage imageWithData:imageData];
 
-    return cell;
+
+    return self.collectionCell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    return self.photos.count;
 }
 
 
