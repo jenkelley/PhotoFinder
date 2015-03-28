@@ -27,12 +27,12 @@
     self.groups = [NSArray new];
     self.photos = [NSArray new];
     self.searchBar.delegate = self;
-    BSDataManager *dataManager = [BSDataManager new];
-    dataManager.delegate = self;
-    //[dataManager getPhotoData];
+    self.bsDataManager = [BSDataManager new];
+    self.bsDataManager.delegate = self;
+    [self.bsDataManager getPhotoData];
 
 
-    [dataManager getGroupData];
+    //[self.bsDataManager getGroupData:@""];
 }
 
 
@@ -49,6 +49,7 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     self.searchedText = self.searchBar.text;
+    [self.bsDataManager getGroupData:self.searchedText];
     [self.searchBar resignFirstResponder];
 }
 
