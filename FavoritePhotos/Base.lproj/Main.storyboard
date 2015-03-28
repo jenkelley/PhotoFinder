@@ -262,14 +262,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efR-nG-nkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NSf-on-jWy" userLabel="Exit" sceneMemberID="exit"/>
-                <searchDisplayController id="xlH-QF-ILK">
-                    <connections>
-                        <outlet property="delegate" destination="iPm-RL-boU" id="eE8-IY-iNH"/>
-                        <outlet property="searchContentsController" destination="iPm-RL-boU" id="286-Ao-hYI"/>
-                        <outlet property="searchResultsDataSource" destination="iPm-RL-boU" id="vWk-hl-yuL"/>
-                        <outlet property="searchResultsDelegate" destination="iPm-RL-boU" id="rZO-cW-j5W"/>
-                    </connections>
-                </searchDisplayController>
                 <searchDisplayController id="720-2l-8qc">
                     <connections>
                         <outlet property="delegate" destination="iPm-RL-boU" id="1SS-c5-UOf"/>
@@ -461,6 +453,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YLT-Gk-nZk"/>
+        <segue reference="wPL-VU-ZgF"/>
     </inferredMetricsTieBreakers>
 </document>
