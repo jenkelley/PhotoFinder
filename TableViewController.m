@@ -17,6 +17,8 @@
 @property NSString *searchedText;
 @property NSMutableArray *photosArray;
 @property BSDataManager *bsDataManager;
+@property FPGroup *fgGroup;
+@property BOOL isFiltered;
 
 @end
 
@@ -27,6 +29,7 @@
     self.groups = [NSArray new];
     self.photos = [NSArray new];
     self.searchBar.delegate = self;
+    self.fgGroup = [FPGroup new];
     self.bsDataManager = [BSDataManager new];
     self.bsDataManager.delegate = self;
 
@@ -45,29 +48,76 @@
 }
 
 
+//-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    self.searchedText = self.searchBar.text;
+//    [self.bsDataManager getGroupData:self.searchedText];
+//    [self.searchBar resignFirstResponder];
+//}
+
+
+#pragma mark - Table View
+
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     self.searchedText = self.searchBar.text;
     [self.bsDataManager getGroupData:self.searchedText];
     [self.searchBar resignFirstResponder];
+
 }
 
-#pragma mark - Table View
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotosCellID"];
-    FPGroup *fgGroup = [FPGroup new];
-    fgGroup = [self.groups objectAtIndex:indexPath.row];
-    cell.textLabel.text = fgGroup.name;
-    cell.detailTextLabel.text = fgGroup.mediaCount;
+//    self.fgGroup = [self.groups objectAtIndex:indexPath.row];
+//    cell.textLabel.text = self.fgGroup.name;
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Photos",self.fgGroup.mediaCount];
+//
+//    return cell;
+
+    if(self.isFiltered) {
+        self.fgGroup = [self.groups objectAtIndex:indexPath.row];
+        cell.textLabel.text = self.fgGroup.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Photos", self.fgGroup.mediaCount];
+    }
+    else {
+        self.fgGroup = [self.groups objectAtIndex:indexPath.row];
+        cell.textLabel.text = self.fgGroup.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Photos", self.fgGroup.mediaCount];
+    }
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+if(self.isFiltered == YES) {
     return self.groups.count;
+} else {
+    return self.groups.count;
+}
+
+//    return self.groups.count;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+    {
+
+    if(searchText.length == 0)
+    {
+        self.isFiltered = FALSE;
+    } else {
+        self.isFiltered = true;
+        self.groups = [NSMutableArray new];
+        for ( FPGroup *group in self.groups) {
+            NSRange stopNameRange = [group.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (stopNameRange.length != NSNotFound) {
+                [self.photosArray addObject:group];
+            }
+        }
+    }
+
+    [self.tableView reloadData];
 }
 
 
@@ -76,16 +126,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CollectionViewController *cvc = [CollectionViewController new];
     cvc = segue.destinationViewController;
+    cvc.title = self.fgGroup.name;
 
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO: make actual call with select tag
-
-
-
-}
-
 
 
 @end
