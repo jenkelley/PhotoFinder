@@ -42,7 +42,7 @@
         //tvc.photos = self.photoFavorites;
     } else {
         CollectionViewController *cvc = segue.destinationViewController;
-        //cvc.photos = self.photoFavorites;
+        cvc.photos = self.photoFavorites;
     }
 
 }

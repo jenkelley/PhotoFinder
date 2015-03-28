@@ -17,6 +17,7 @@
 @property NSString *latitude;
 @property NSString *standardImageUrl;
 @property int arrayIndex;
+@property BOOL favoriteBool;
 
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary arrayIndex:(int)arrayIndex;

@@ -69,6 +69,16 @@
     return self.photos.count;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    Photo *photoz = [self.photos objectAtIndex:indexPath.row];
+
+    if (photoz.favoriteBool == NO) {
+        photoz.favoriteBool = YES;
+        
+    } else {
+        photoz.favoriteBool = NO;
+    }
+}
 
 /*
 #pragma mark - Navigation
