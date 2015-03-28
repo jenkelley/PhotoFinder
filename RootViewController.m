@@ -11,11 +11,9 @@
 #import "FPGroup.h"
 #import "Photo.h"
 #import "FPCollectionView.h"
-#import "FPCollectionViewCell.h"
+#import "TableViewController.h"
 
 @interface RootViewController ()<BSDataDelegate>
-@property NSArray *photos;
-@property NSArray *groups;
 @property (weak, nonatomic) IBOutlet UIButton *onPhotosButtonTapped;
 @property (weak, nonatomic) IBOutlet UIButton *onFavoriteButtonTapped;
 
@@ -25,18 +23,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.groups = [NSArray new];
+    self.photos = [NSArray new];
+}
 
+
+
+- (IBAction)unwindToRootController:(UIStoryboardSegue *)sender {
 
 }
 
-/*
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    TableViewController *tbc = [TableViewController new];
+    tbc = segue.destinationViewController;
+    //tbc.photos = self.photos;
+    //tbc.groups = self.groups;
 }
-*/
+
 
 @end

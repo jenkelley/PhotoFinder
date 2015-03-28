@@ -8,8 +8,15 @@
 
 #import "TableViewController.h"
 #import "CollectionViewController.h"
+#import "BSDataManager.h"
+#import "FPGroup.h"
 
-@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate,BSDataDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property NSString *searchedText;
+@property NSMutableArray *photosArray;
+@property BSDataManager *bsDataManager;
 
 @end
 
@@ -17,43 +24,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    BSDataManager *dataManager = [BSDataManager new];
-//    dataManager.delegate = self;
-//    [dataManager getPhotoData];
-//
-//    [dataManager getGroupData];
+    self.groups = [NSArray new];
+    self.photos = [NSArray new];
+    self.searchBar.delegate = self;
+    BSDataManager *dataManager = [BSDataManager new];
+    dataManager.delegate = self;
+    //[dataManager getPhotoData];
+
+
+    [dataManager getGroupData];
 }
 
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//
-//- (void)gotPhotoData:(id)array {
-//    self.Photos = array;
-//    [self.collectionView reloadData];
-//}
-//
-//- (void)gotGroupData:(id)array {
-//    self.Groups = array;
-//    //[self.collectionView reloadData]; where to load it
-//}
+
+- (void)gotPhotoData:(id)array {
+    self.photos = array;
+}
+
+- (void)gotGroupData:(id)array {
+    self.groups = array;
+    [self.tableView reloadData];
+}
+
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    self.searchedText = self.searchBar.text;
+    [self.searchBar resignFirstResponder];
+}
+
+#pragma mark - Table View
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotosCellID"];
-    cell.textLabel.text = @"Yes!!";
-    cell.detailTextLabel.text = @"OHHHH!";
 
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotosCellID"];
+    FPGroup *fgGroup = [FPGroup new];
+    fgGroup = [self.groups objectAtIndex:indexPath.row];
+    cell.textLabel.text = fgGroup.name;
+    //cell.detailTextLabel.text = fgGroup.mediaCount;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return self.groups.count;
 }
-
 
 
 #pragma mark - Navigation
@@ -62,6 +77,8 @@
     CollectionViewController *cvc = [CollectionViewController new];
     cvc = segue.destinationViewController;
 }
+
+
 
 
 @end
