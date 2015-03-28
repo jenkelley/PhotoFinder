@@ -20,13 +20,10 @@
 @property NSDictionary *dictionary;
 @property NSArray *array;
 
-
 @property (nonatomic, assign) id <BSDataDelegate> delegate;
 
-
-
 - (void)getPhotoData;
-- (void)getGroupData;
+- (void)getGroupData:(NSString *)searchText;
 
 
 

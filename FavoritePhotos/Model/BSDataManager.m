@@ -61,13 +61,9 @@
     
 }
 
-- (void)getGroupData {
-    //%@?client_id=%@&redirect_uri=%@&response_type=token
-
-    //NSString *urlText = [NSString stringWithFormat:@"%@%@&redirect_uri= %@&response_type=token",KAUTHURL,KCLIENTID,kREDIRECTURI];
-
-    //NSString *urlText = @"https://api.instagram.com/v1/tags/sailboat/media/recent";
-    NSString *urlText = @"https://api.instagram.com/v1/tags/search?access_token=511875006.1fb234f.0d6beb9217cc493ebfb452c798bcbed2&q=knitter";
+- (void)getGroupData:(NSString *)searchText {
+    NSString *groupUrlText = @"https://api.instagram.com/v1/tags/search?access_token=511875006.1fb234f.0d6beb9217cc493ebfb452c798bcbed2&q=*****";
+    NSString *urlText = [groupUrlText stringByReplacingOccurrencesOfString:@"*****" withString:searchText];
 
     NSURL *url = [NSURL URLWithString:urlText];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -94,12 +90,10 @@
                                }
 
                                [self.delegate gotGroupData:groups];
-                               
-                               
+
                                NSLog(@"Data items: %li", (long)self.array.count);
                                
                            }];
-    
 }
 
 
