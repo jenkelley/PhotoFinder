@@ -22,7 +22,7 @@
 
 @property (nonatomic, assign) id <BSDataDelegate> delegate;
 
-- (void)getPhotoData;
+- (void)getPhotoData:(NSString *)searchText;
 - (void)getGroupData:(NSString *)searchText;
 
 

@@ -20,13 +20,9 @@
 
 @implementation BSDataManager
 
-- (void)getPhotoData {
-    //%@?client_id=%@&redirect_uri=%@&response_type=token
-
-    //NSString *urlText = [NSString stringWithFormat:@"%@%@&redirect_uri= %@&response_type=token",KAUTHURL,KCLIENTID,kREDIRECTURI];
-
-    //NSString *urlText = @"https://api.instagram.com/v1/tags/sailboat/media/recent";
-    NSString *urlText = @"https://api.instagram.com/v1/tags/knitter/media/recent?access_token=511875006.1fb234f.0d6beb9217cc493ebfb452c798bcbed2";
+- (void)getPhotoData:(NSString *)searchText {
+    NSString *photoUrlText = @"https://api.instagram.com/v1/tags/*****/media/recent?access_token=511875006.1fb234f.0d6beb9217cc493ebfb452c798bcbed2";
+    NSString *urlText = [photoUrlText stringByReplacingOccurrencesOfString:@"*****" withString:searchText];
 
     NSURL *url = [NSURL URLWithString:urlText];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
