@@ -28,6 +28,14 @@
     [super viewDidLoad];
 
     self.photoFavorites = [NSMutableArray new];
+
+    BSDataManager *bsDataManager = [BSDataManager new];
+
+    NSMutableArray *favs = [bsDataManager read];
+    if (favs.count > 0) {
+        self.photoFavorites = favs;
+    }
+
 }
 
 
@@ -42,7 +50,8 @@
         //tvc.photos = self.photoFavorites;
     } else {
         CollectionViewController *cvc = segue.destinationViewController;
-        //cvc.photos = self.photoFavorites;
+        cvc.photoFavorites = self.photoFavorites;
+        cvc.isFavoritesOnly = YES;
     }
 
 }

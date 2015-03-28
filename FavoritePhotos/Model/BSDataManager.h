@@ -26,6 +26,10 @@
 - (void)getGroupData:(NSString *)searchText;
 
 
+- (void)write:(NSMutableArray *)array;
+
+- (NSMutableArray *)read;
+
 
 @end
 
