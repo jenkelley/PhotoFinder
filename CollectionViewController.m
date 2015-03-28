@@ -16,6 +16,7 @@
 @interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate>
 @property (strong, nonatomic) IBOutlet FPCollectionView *collectionView;
 @property FPCollectionViewCell *collectionCell;
+@property BSDataManager *bsDataManger;
 @end
 
 @implementation CollectionViewController
@@ -23,15 +24,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    BSDataManager *dataManager = [BSDataManager new];
-    dataManager.delegate = self;
+    self.bsDataManger = [BSDataManager new];
+    self.bsDataManger.delegate = self;
 
-    [dataManager getPhotoData:@"sailboat"];
-
-
-
-    self.photoFavorites = [NSMutableArray new];
-
+    if (self.isFavoritesOnly) {
+        self.photos = [NSMutableArray arrayWithArray:self.photoFavorites];
+    } else {
+        [self.bsDataManger getPhotoData:@"sailboat"];
+    }
+    if (self.photoFavorites == nil) {
+        self.photoFavorites = [NSMutableArray new];
+    }
 
 }
 
@@ -73,15 +76,16 @@
     Photo *photoz = [self.photos objectAtIndex:indexPath.row];
 
     if (photoz.favoriteBool == NO) {
-        photoz.favoriteBool = YES;
+        photoz.favoriteBool = [NSNumber numberWithBool:YES];
         NSLog(@"FAVORITE FOREVER");
         [self.photoFavorites addObject:photoz];
-        
     } else {
-        photoz.favoriteBool = NO;
+        photoz.favoriteBool = [NSNumber numberWithBool:NO];
         [self.photoFavorites removeObject:photoz];
     }
+
     NSLog(@"%lu", (unsigned long)self.photoFavorites.count);
+    [self.bsDataManger write:self.photoFavorites];
 }
 
 /*

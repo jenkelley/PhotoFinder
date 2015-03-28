@@ -11,5 +11,6 @@
 @interface CollectionViewController : UIViewController
 @property NSArray *photos;
 @property NSMutableArray *photoFavorites;
+@property BOOL isFavoritesOnly;
 
 @end

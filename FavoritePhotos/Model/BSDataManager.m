@@ -11,13 +11,6 @@
 #import "FPGroup.h"
 
 
-#define KAUTHURL @"https://api.instagram.com/oauth/authorize/"
-#define kAPIURl @"https://api.instagram.com/v1/users/"
-#define KCLIENTID @"5de4ae86fa5e47cbbaa0196f5944eaeb"
-#define KCLIENTSERCRET @"Y35e4404d6a914c4cb68bc64fb9e3292d"
-#define kREDIRECTURI @"http://www.grumpydane.com/index.html"
-
-
 @implementation BSDataManager
 
 - (void)getPhotoData:(NSString *)searchText {
@@ -41,10 +34,10 @@
 
                                int arrayIndex = 0;
                                for (NSDictionary *photoDictionary in self.array) {
-                                   Photo *photo = [[Photo alloc]initWithDictionary:photoDictionary arrayIndex:arrayIndex];
+                                   Photo *photo = [[Photo alloc]initWithDictionary:photoDictionary arrayIndex:[NSNumber numberWithInteger:arrayIndex]];
                                    [photos addObject:photo];
                                    arrayIndex++;
-                                   NSLog(@" ArrayIndex: %i", photo.arrayIndex);
+                                   NSLog(@" ArrayIndex: %i", arrayIndex);
                                    
                                }
 
@@ -90,6 +83,25 @@
                                NSLog(@"Data items: %li", (long)self.array.count);
                                
                            }];
+}
+
+- (void)write:(NSMutableArray *)array {
+    // Save the array
+    [NSKeyedArchiver archiveRootObject:array toFile:[BSDataManager dataFullPathName]];
+    NSLog(@"%@", [BSDataManager dataFullPathName]);
+}
+
+- (NSMutableArray *)read {
+    // Load the array
+    NSMutableArray *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:[BSDataManager dataFullPathName]];
+    return tasks;
+
+}
+
++ (NSString *)dataFullPathName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+    return [NSString stringWithFormat:@"%@/photoFavorites.data", docDir];
 }
 
 
