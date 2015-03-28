@@ -49,7 +49,8 @@
         TableViewController *tvc = segue.destinationViewController;
         //tvc.photos = self.photoFavorites;
     } else {
-        CollectionViewController *cvc = segue.destinationViewController;
+        CollectionViewController *cvc = [CollectionViewController new];
+        cvc = segue.destinationViewController;
         cvc.photoFavorites = self.photoFavorites;
         cvc.isFavoritesOnly = YES;
     }
