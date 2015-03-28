@@ -76,8 +76,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CollectionViewController *cvc = [CollectionViewController new];
     cvc = segue.destinationViewController;
+
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //TODO: make actual call with select tag
+
+
+
+}
 
 
 

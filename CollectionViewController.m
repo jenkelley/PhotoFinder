@@ -7,8 +7,10 @@
 //
 
 #import "CollectionViewController.h"
+#import "BSDataManager.h"
+#import "Photo.h"
 
-@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate>
 
 @end
 
@@ -16,7 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    BSDataManager *dataManager = [BSDataManager new];
+    dataManager.delegate = self;
+
+    [dataManager getPhotoData];
+
+
+
+}
+
+- (void)gotPhotoData:(id)array {
+    self.photos = array;
+    // reload
 }
 
 - (void)didReceiveMemoryWarning {
