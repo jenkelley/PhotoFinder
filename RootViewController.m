@@ -38,8 +38,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    CollectionViewController *cvc = segue.destinationViewController;
-    cvc.photos = self.photoFavorites;
+//    CollectionViewController *cvc = segue.destinationViewController;
+//    cvc.photos = self.photoFavorites;
 }
 
 
