@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 @protocol BSDataDelegate <NSObject>
 
 @optional
@@ -23,13 +25,16 @@
 @property (nonatomic, assign) id <BSDataDelegate> delegate;
 
 - (void)getPhotoData:(NSString *)searchText;
-- (void)getGroupData:(NSString *)searchText;
 
+- (void)getGroupData:(NSString *)searchText;
 
 - (void)write:(NSMutableArray *)array;
 
 - (NSMutableArray *)read;
 
++ (void)writeImageToDisk:(UIImage *)image withFileName:(NSString *)fileName;
+
++ (UIImage *)readImageFromDisk:(NSString *)imageName;
 
 @end
 

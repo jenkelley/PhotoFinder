@@ -10,8 +10,10 @@
 #import "Photo.h"
 #import "FPGroup.h"
 
-
 @implementation BSDataManager
+
+
+#pragma mark Instagram api
 
 - (void)getPhotoData:(NSString *)searchText {
     NSString *photoUrlText = @"https://api.instagram.com/v1/tags/*****/media/recent?access_token=511875006.1fb234f.0d6beb9217cc493ebfb452c798bcbed2";
@@ -85,23 +87,61 @@
                            }];
 }
 
+
+#pragma mark - Data methods
+
 - (void)write:(NSMutableArray *)array {
     // Save the array
-    [NSKeyedArchiver archiveRootObject:array toFile:[BSDataManager dataFullPathName]];
-    NSLog(@"%@", [BSDataManager dataFullPathName]);
+    [NSKeyedArchiver archiveRootObject:array toFile:[BSDataManager fullPathName:@"photoFavorites.data"]];
+    NSLog(@"%@", [BSDataManager fullPathName:@"photoFavorites.data"]);
 }
 
 - (NSMutableArray *)read {
     // Load the array
-    NSMutableArray *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:[BSDataManager dataFullPathName]];
+    NSMutableArray *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:[BSDataManager fullPathName:@"photoFavorites.data"]];
     return tasks;
 
 }
 
-+ (NSString *)dataFullPathName {
++ (NSString *)fullPathName:(NSString *)fileName {
+    NSString *adjustedFileName = fileName;
+    if ([fileName containsString:@"http"]) {
+        adjustedFileName = [fileName lastPathComponent];
+    }
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
-    return [NSString stringWithFormat:@"%@/photoFavorites.data", docDir];
+
+    NSLog(@"%@", [NSString stringWithFormat:@"%@/%@", docDir, adjustedFileName]);
+    return [NSString stringWithFormat:@"%@/%@", docDir, adjustedFileName];
+}
+
+
+
+#pragma mark - Image methods
+
++ (void)writeImageToDisk:(UIImage *)image withFileName:(NSString *)fileName {
+    NSLog(@"%f,%f",image.size.width,image.size.height);
+
+    NSLog(@"saving png");
+    NSString *pngFilePath = [BSDataManager fullPathName:fileName];
+    NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(image)];
+    [data1 writeToFile:pngFilePath atomically:YES];
+
+//    NSLog(@"saving jpeg");
+//    NSString *jpegFilePath = [NSString stringWithFormat:@"%@/test.jpeg",docDir];
+//    NSData *data2 = [NSData dataWithData:UIImageJPEGRepresentation(image, 1.0f)];//1.0f = 100% quality
+//    [data2 writeToFile:jpegFilePath atomically:YES];
+
+    NSLog(@"saving image done");
+
+}
+
++ (UIImage *)readImageFromDisk:(NSString *)fileName {
+
+    UIImage *testImage = [UIImage imageWithContentsOfFile:[BSDataManager fullPathName:fileName]];
+
+    return testImage;
 }
 
 

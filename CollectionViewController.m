@@ -7,7 +7,6 @@
 //
 
 #import "CollectionViewController.h"
-
 #import "BSDataManager.h"
 #import "Photo.h"
 #import "FPCollectionViewCell.h"
@@ -51,24 +50,24 @@
 
 
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     self.collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
 
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
 
-
     self.collectionCell.urlLabel.text = photo.standardImageUrl;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photo.standardImageUrl]];
 
-    self.collectionCell.imageView.image = [UIImage imageWithData:imageData];
-
+    if (imageData != nil) {
+        self.collectionCell.imageView.image = [UIImage imageWithData:imageData];
+    } else  if (photo.favoriteBool == [NSNumber numberWithBool:YES]) {
+        self.collectionCell.imageView.image = [BSDataManager readImageFromDisk:photo.standardImageUrl];
+    }
 
     return self.collectionCell;
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.photos.count;
 }
 
@@ -79,6 +78,11 @@
         photoz.favoriteBool = [NSNumber numberWithBool:YES];
         NSLog(@"FAVORITE FOREVER");
         [self.photoFavorites addObject:photoz];
+
+        // save the image to disk
+        FPCollectionViewCell *cell = (FPCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        [BSDataManager writeImageToDisk:cell.imageView.image withFileName:photoz.standardImageUrl];
+
     } else {
         photoz.favoriteBool = [NSNumber numberWithBool:NO];
         [self.photoFavorites removeObject:photoz];

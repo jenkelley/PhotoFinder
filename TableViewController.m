@@ -11,7 +11,7 @@
 #import "BSDataManager.h"
 #import "FPGroup.h"
 
-@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, BSDataDelegate>
+@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate,BSDataDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property NSString *searchedText;
@@ -34,6 +34,7 @@
     self.bsDataManager.delegate = self;
 
 }
+
 
 - (void)gotPhotoData:(id)array {
     self.photos = array;
