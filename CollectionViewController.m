@@ -11,11 +11,14 @@
 #import "Photo.h"
 #import "FPCollectionViewCell.h"
 #import "FPCollectionView.h"
+#import <MessageUI/MessageUI.h>
 
-@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate>
+
+@interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate, MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet FPCollectionView *collectionView;
 @property FPCollectionViewCell *collectionCell;
 @property BSDataManager *bsDataManger;
+
 @end
 
 @implementation CollectionViewController
@@ -29,7 +32,7 @@
     if (self.isFavoritesOnly) {
         self.photos = [NSMutableArray arrayWithArray:self.photoFavorites];
     } else {
-        [self.bsDataManger getPhotoData:@"sailboat"];
+        [self.bsDataManger getPhotoData:self.title];
     }
     if (self.photoFavorites == nil) {
         self.photoFavorites = [NSMutableArray new];
@@ -91,6 +94,28 @@
     NSLog(@"%lu", (unsigned long)self.photoFavorites.count);
     [self.bsDataManger write:self.photoFavorites];
 }
+
+#pragma mark Email stuff
+
+- (IBAction)onEmailButtonPressed:(id)sender {
+        MFMailComposeViewController *email = [[MFMailComposeViewController alloc]init];
+        email.mailComposeDelegate = self;
+        [email setSubject:@"Check out this pic..."];
+
+        //[email setMessageBody:@"Sent From NH Cards app" isHTML:YES];
+
+        [self presentViewController:email animated:YES completion:nil];
+
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
 
 /*
 #pragma mark - Navigation

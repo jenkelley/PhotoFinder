@@ -21,6 +21,7 @@
 		6B5617841AC593EE001EA29C /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617811AC593EE001EA29C /* Photo.m */; };
 		6B56178A1AC59440001EA29C /* FPCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617871AC59440001EA29C /* FPCollectionView.m */; };
 		6B56178B1AC59440001EA29C /* FPCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5617891AC59440001EA29C /* FPCollectionViewCell.m */; };
+		6B670F9F1AC88F500020A1CD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B670F9E1AC88F500020A1CD /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		6B5617871AC59440001EA29C /* FPCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPCollectionView.m; path = FavoritePhotos/Controller/FPCollectionView.m; sourceTree = "<group>"; };
 		6B5617881AC59440001EA29C /* FPCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPCollectionViewCell.h; path = FavoritePhotos/Controller/FPCollectionViewCell.h; sourceTree = "<group>"; };
 		6B5617891AC59440001EA29C /* FPCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPCollectionViewCell.m; path = FavoritePhotos/Controller/FPCollectionViewCell.m; sourceTree = "<group>"; };
+		6B670F9E1AC88F500020A1CD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B670F9F1AC88F500020A1CD /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +87,7 @@
 		144810E31AC4912400F26321 = {
 			isa = PBXGroup;
 			children = (
+				6B670F9E1AC88F500020A1CD /* MessageUI.framework */,
 				6B56177B1AC593D5001EA29C /* Model */,
 				6B56178C1AC59459001EA29C /* View */,
 				6B5617851AC5942D001EA29C /* Controller */,

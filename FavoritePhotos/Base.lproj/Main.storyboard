@@ -168,7 +168,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.3833451705" green="0.0" blue="0.02837547268" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="4fM-aV-fdX" kind="show" identifier="GroupToPhotosSegue" id="YLT-Gk-nZk"/>
+                                            <segue destination="OE4-3m-TpS" kind="show" id="XFH-Ep-lOa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -342,7 +342,7 @@
                                     <constraint firstAttribute="height" constant="30" id="NVo-Ct-hLj"/>
                                     <constraint firstAttribute="width" constant="46" id="mJf-dI-6Jg"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Email">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -361,6 +361,9 @@
                                         <include reference="mJf-dI-6Jg"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onEmailButtonPressed:" destination="OE4-3m-TpS" eventType="touchUpInside" id="2uy-yH-Sbg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,7 +407,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yh-v6-yrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4pB-84-H7Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3235.5" y="239"/>
+            <point key="canvasLocation" x="2331" y="688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="elo-d8-Y7n">
@@ -429,30 +432,8 @@
             </objects>
             <point key="canvasLocation" x="1134" y="-174"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DPI-ZZ-TyY">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4fM-aV-fdX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sWn-pY-aod">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.38516019569999999" green="0.18407839049999999" blue="0.043682841110000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.85239896839999996" blue="0.67443599080000005" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OE4-3m-TpS" kind="relationship" relationship="rootViewController" id="y2H-Oc-ENQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tIJ-dJ-36V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2317.5" y="239"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KT3-OR-lyY"/>
+        <segue reference="XFH-Ep-lOa"/>
     </inferredMetricsTieBreakers>
 </document>

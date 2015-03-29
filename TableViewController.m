@@ -45,7 +45,6 @@
     [self.tableView reloadData];
 }
 
-
 //-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 //{
 //    self.searchedText = self.searchBar.text;
@@ -116,9 +115,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     CollectionViewController *cvc = [CollectionViewController new];
     cvc = segue.destinationViewController;
-    cvc.title = self.fgGroup.name;
-
+    cvc.title = ((UITableViewCell *)sender).textLabel.text;
 }
+
+
+
+
+
+
 
 
 @end
