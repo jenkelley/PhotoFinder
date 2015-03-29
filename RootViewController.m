@@ -19,6 +19,7 @@
 @interface RootViewController ()<BSDataDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *onPhotosButtonTapped;
 @property (weak, nonatomic) IBOutlet UIButton *onFavoriteButtonTapped;
+@property BSDataManager *bsDataManager;
 
 @end
 
@@ -29,15 +30,21 @@
 
     self.photoFavorites = [NSMutableArray new];
 
-    BSDataManager *bsDataManager = [BSDataManager new];
+    self.bsDataManager = [BSDataManager new];
 
-    NSMutableArray *favs = [bsDataManager read];
+    NSMutableArray *favs = [self.bsDataManager read];
     if (favs.count > 0) {
         self.photoFavorites = favs;
     }
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSMutableArray *favs = [self.bsDataManager read];
+    if (favs.count > 0) {
+        self.photoFavorites = favs;
+    }
+}
 
 
 - (IBAction)unwindToRootController:(UIStoryboardSegue *)sender {

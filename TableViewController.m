@@ -11,7 +11,7 @@
 #import "BSDataManager.h"
 #import "FPGroup.h"
 
-@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate,BSDataDelegate>
+@interface TableViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, BSDataDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property NSString *searchedText;
@@ -33,10 +33,7 @@
     self.bsDataManager = [BSDataManager new];
     self.bsDataManager.delegate = self;
 
-
-    //[self.bsDataManager getGroupData:@""];
 }
-
 
 - (void)gotPhotoData:(id)array {
     self.photos = array;
@@ -89,19 +86,11 @@
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-if(self.isFiltered == YES) {
-    return self.groups.count;
-} else {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.groups.count;
 }
 
-//    return self.groups.count;
-}
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-    {
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 
     if(searchText.length == 0)
     {
