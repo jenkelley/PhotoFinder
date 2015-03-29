@@ -12,12 +12,14 @@
 #import "FPCollectionViewCell.h"
 #import "FPCollectionView.h"
 #import <MessageUI/MessageUI.h>
+#import <Twitter/Twitter.h>
 
 
 @interface CollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, BSDataDelegate, MFMailComposeViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet FPCollectionView *collectionView;
 @property FPCollectionViewCell *collectionCell;
 @property BSDataManager *bsDataManger;
+@property NSIndexPath *indexPath;
 
 @end
 
@@ -66,7 +68,7 @@
     } else  if (photo.favoriteBool == [NSNumber numberWithBool:YES]) {
         self.collectionCell.imageView.image = [BSDataManager readImageFromDisk:photo.standardImageUrl];
     }
-
+    self.indexPath = indexPath;
     return self.collectionCell;
 }
 
@@ -95,23 +97,19 @@
     [self.bsDataManger write:self.photoFavorites];
 }
 
-#pragma mark Email stuff
 
-- (IBAction)onEmailButtonPressed:(id)sender {
-        MFMailComposeViewController *email = [[MFMailComposeViewController alloc]init];
-        email.mailComposeDelegate = self;
-        [email setSubject:@"Check out this pic..."];
+#pragma mark Twitter & email stuff
 
-        //[email setMessageBody:@"Sent From NH Cards app" isHTML:YES];
+- (IBAction)onTweetButtonPressed:(id)sender {
+    FPCollectionViewCell *cell = ((FPCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:self.indexPath]);
 
-        [self presentViewController:email animated:YES completion:nil];
-
+    NSArray *imageArray = [[NSArray alloc]initWithObjects:cell.imageView.image, nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:imageArray applicationActivities:nil];
+    [self presentViewController:activityViewController
+                                       animated:YES
+                                     completion:^{
+                                     }];
 }
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 
 

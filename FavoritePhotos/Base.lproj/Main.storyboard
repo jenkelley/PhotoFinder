@@ -334,61 +334,55 @@
                                     <outlet property="delegate" destination="OE4-3m-TpS" id="6Fh-rO-3oR"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhj-8O-iuw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sd-FX-oMw">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="CCA-DO-6G5"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Lyj-Is-g60"/>
-                                    <constraint firstAttribute="height" constant="30" id="NVo-Ct-hLj"/>
-                                    <constraint firstAttribute="width" constant="46" id="mJf-dI-6Jg"/>
+                                    <constraint firstAttribute="height" constant="38" id="RO2-J3-D59"/>
+                                    <constraint firstAttribute="width" constant="136" id="iPR-sT-iCD"/>
                                 </constraints>
-                                <state key="normal" title="Email">
+                                <state key="normal" title="Send this Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="CCA-DO-6G5"/>
-                                        <exclude reference="Lyj-Is-g60"/>
-                                        <exclude reference="NVo-Ct-hLj"/>
-                                        <exclude reference="mJf-dI-6Jg"/>
+                                        <exclude reference="RO2-J3-D59"/>
+                                        <exclude reference="iPR-sT-iCD"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="CCA-DO-6G5"/>
-                                        <include reference="Lyj-Is-g60"/>
-                                        <include reference="NVo-Ct-hLj"/>
-                                        <include reference="mJf-dI-6Jg"/>
+                                        <include reference="RO2-J3-D59"/>
+                                        <include reference="iPR-sT-iCD"/>
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="onEmailButtonPressed:" destination="OE4-3m-TpS" eventType="touchUpInside" id="2uy-yH-Sbg"/>
+                                    <action selector="onTweetButtonPressed:" destination="OE4-3m-TpS" eventType="touchUpInside" id="ycn-VF-g0G"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7y7-7o-VXx" firstAttribute="top" secondItem="Dhj-8O-iuw" secondAttribute="bottom" constant="20" id="N7h-kt-QYv"/>
-                            <constraint firstAttribute="centerX" secondItem="Dhj-8O-iuw" secondAttribute="centerX" id="Xi2-7Q-J5a"/>
+                            <constraint firstItem="7y7-7o-VXx" firstAttribute="top" secondItem="7sd-FX-oMw" secondAttribute="bottom" constant="8" id="a4W-hX-dyd"/>
+                            <constraint firstAttribute="centerX" secondItem="7sd-FX-oMw" secondAttribute="centerX" id="bwo-uI-pfk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="dTg-1P-o7j"/>
-                                <exclude reference="Dhj-8O-iuw"/>
+                                <exclude reference="7sd-FX-oMw"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="N7h-kt-QYv"/>
-                                <exclude reference="Xi2-7Q-J5a"/>
+                                <exclude reference="bwo-uI-pfk"/>
+                                <exclude reference="a4W-hX-dyd"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="dTg-1P-o7j"/>
-                                <include reference="Dhj-8O-iuw"/>
+                                <include reference="7sd-FX-oMw"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="N7h-kt-QYv"/>
-                                <include reference="Xi2-7Q-J5a"/>
+                                <include reference="bwo-uI-pfk"/>
+                                <include reference="a4W-hX-dyd"/>
                             </mask>
                         </variation>
                     </view>
