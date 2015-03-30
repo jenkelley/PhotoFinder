@@ -18,6 +18,8 @@
     NSString     *standardImageUrl;
     NSNumber     *arrayIndex;
     NSNumber     *favoriteBool;
+    NSString     *caption;
+
 }
 @property (nonatomic, retain) NSDictionary *dictionary;
 @property (nonatomic, retain) NSString *Id;
@@ -27,6 +29,8 @@
 @property (nonatomic, retain) NSString *standardImageUrl;
 @property (nonatomic, retain) NSNumber *arrayIndex;
 @property (nonatomic, retain) NSNumber *favoriteBool;
+@property (nonatomic, retain) NSString *caption;
+
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary arrayIndex:(NSNumber *)arrayIndex;
 - (NSString *)getProperty:(NSString *)propertyName;

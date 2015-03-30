@@ -42,6 +42,10 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)gotPhotoData:(id)array {
     self.photos = array;
     [self.collectionView reloadData];
@@ -59,8 +63,9 @@
     self.collectionCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewID" forIndexPath:indexPath];
 
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
+    NSLog(@"(%@,%@)", photo.longitude, photo.latitude);
 
-    self.collectionCell.urlLabel.text = photo.standardImageUrl;
+    //self.collectionCell.urlLabel.text = photo.standardImageUrl;
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:photo.standardImageUrl]];
 
     if (imageData != nil) {
@@ -69,6 +74,9 @@
         self.collectionCell.imageView.image = [BSDataManager readImageFromDisk:photo.standardImageUrl];
     }
     self.indexPath = indexPath;
+    self.collectionCell.geoCode.text = (![photo.longitude isEqualToString:@""]) ? [NSString stringWithFormat:@"(%@,%@)", photo.longitude, photo.latitude] : @"";
+    self.collectionCell.captionLabel.text = photo.caption;
+    self.collectionCell.likeImageView.hidden = !photo.favoriteBool;
     return self.collectionCell;
 }
 
@@ -78,6 +86,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     Photo *photoz = [self.photos objectAtIndex:indexPath.row];
+    FPCollectionViewCell *cell = (FPCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
 
     if (photoz.favoriteBool == NO) {
         photoz.favoriteBool = [NSNumber numberWithBool:YES];
@@ -85,7 +94,6 @@
         [self.photoFavorites addObject:photoz];
 
         // save the image to disk
-        FPCollectionViewCell *cell = (FPCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
         [BSDataManager writeImageToDisk:cell.imageView.image withFileName:photoz.standardImageUrl];
 
     } else {
@@ -94,6 +102,8 @@
     }
 
     NSLog(@"%lu", (unsigned long)self.photoFavorites.count);
+    cell.likeImageView.hidden = ![photoz.favoriteBool boolValue];
+
     [self.bsDataManger write:self.photoFavorites];
 }
 
@@ -115,14 +125,6 @@
 
 
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

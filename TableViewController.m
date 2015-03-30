@@ -35,6 +35,9 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = NO;
+}
 
 - (void)gotPhotoData:(id)array {
     self.photos = array;

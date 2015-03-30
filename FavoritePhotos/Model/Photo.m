@@ -9,7 +9,7 @@
 #import "Photo.h"
 
 @implementation Photo
-@synthesize Id, longitude, latitude, standardImageUrl, arrayIndex, favoriteBool;
+@synthesize Id, longitude, latitude, standardImageUrl, arrayIndex, favoriteBool, caption;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryIn arrayIndex:(NSNumber *)arrayIndexIn {
     self = [super init];
@@ -19,8 +19,8 @@
 
         NSDictionary *locationDictionary = [self.dictionary objectForKey:@"location"];
         if (locationDictionary != (id)[NSNull null]) {
-            self.latitude = [locationDictionary objectForKey:@"latitude"];
-            self.longitude = [locationDictionary objectForKey:@"longitude"];
+            self.latitude = [[locationDictionary objectForKey:@"latitude"] stringValue];
+            self.longitude = [[locationDictionary objectForKey:@"longitude"] stringValue];
             self.location = [[CLLocation alloc] initWithLatitude:[self.latitude doubleValue] longitude:[self.longitude doubleValue]];
         } else {
             NSLog(@"NO LOCATION SPECIFIED");
@@ -38,6 +38,13 @@
         } else {
             NSLog(@"NO IMAGES SPECIFIED");
         }
+
+        NSDictionary *caption = [self.dictionary objectForKey:@"caption"];
+        if (caption != (id)[NSNull null]) {
+                self.caption = [caption objectForKey:@"text"];
+                NSLog(@"Caption: %@", self.caption);
+        }
+
     }
 
     return self;
@@ -55,6 +62,7 @@
 #define kStandardImageUrl @"standardImageUrl"
 #define kArrayIndex       @"arrayIndex"
 #define kFavoriteBool     @"favoriteBool"
+#define kCaption          @"caption"
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:Id forKey:kId];
@@ -63,6 +71,7 @@
     [encoder encodeObject:standardImageUrl forKey:kStandardImageUrl];
     [encoder encodeObject:arrayIndex forKey:kArrayIndex];
     [encoder encodeObject:favoriteBool forKey:kFavoriteBool];
+    [encoder encodeObject:caption forKey:kCaption];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -72,6 +81,7 @@
     self.standardImageUrl = [decoder decodeObjectForKey:kStandardImageUrl];
     self.arrayIndex = [decoder decodeObjectForKey:kArrayIndex];
     self.favoriteBool = [decoder decodeObjectForKey:kFavoriteBool];
+    self.caption = [decoder decodeObjectForKey:kCaption];
 
     self.location = [[CLLocation alloc] initWithLatitude:[self.latitude doubleValue] longitude:[self.longitude doubleValue]];
 

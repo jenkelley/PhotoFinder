@@ -98,9 +98,16 @@
 
 - (NSMutableArray *)read {
     // Load the array
-    NSMutableArray *tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:[BSDataManager fullPathName:@"photoFavorites.data"]];
-    return tasks;
+    NSMutableArray *tasks;
+    @try {
+        tasks = [NSKeyedUnarchiver unarchiveObjectWithFile:[BSDataManager fullPathName:@"photoFavorites.data"]];
+    }
+    @catch (NSException *exception) {
+        [BSDataManager deleteFile:@"photoFavorites.data"];
+        tasks = nil;
+    }
 
+    return tasks;
 }
 
 + (NSString *)fullPathName:(NSString *)fileName {
@@ -115,7 +122,6 @@
     NSLog(@"%@", [NSString stringWithFormat:@"%@/%@", docDir, adjustedFileName]);
     return [NSString stringWithFormat:@"%@/%@", docDir, adjustedFileName];
 }
-
 
 
 #pragma mark - Image methods
@@ -144,7 +150,20 @@
     return testImage;
 }
 
++ (void)deleteFile:(NSString *)fileName {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL success = [fileManager removeItemAtPath:[BSDataManager fullPathName:@"photoFavorites.data"] error:&error];
+    if (success) {
+        UIAlertView *removeSuccessFulAlert=[[UIAlertView alloc]initWithTitle:@"Congratulation:" message:@"Successfully removed" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [removeSuccessFulAlert show];
+    }
+    else
+    {
+        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+    }
 
+}
 
 
 
