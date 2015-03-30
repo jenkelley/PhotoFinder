@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Nj-tP-610">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Nj-tP-610">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -116,12 +116,12 @@
                                 <exclude reference="fua-hd-CTq"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="bDi-gf-SbC"/>
                                 <exclude reference="cYt-lg-XXC"/>
                                 <exclude reference="rFD-DU-rEX"/>
                                 <exclude reference="x26-Ho-Rhf"/>
                                 <exclude reference="bPN-sX-qyJ"/>
                                 <exclude reference="hwW-s4-U8k"/>
+                                <exclude reference="bDi-gf-SbC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -131,12 +131,12 @@
                                 <include reference="fua-hd-CTq"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="bDi-gf-SbC"/>
                                 <include reference="cYt-lg-XXC"/>
                                 <include reference="rFD-DU-rEX"/>
                                 <include reference="x26-Ho-Rhf"/>
                                 <include reference="bPN-sX-qyJ"/>
                                 <include reference="hwW-s4-U8k"/>
+                                <include reference="bDi-gf-SbC"/>
                             </mask>
                         </variation>
                     </view>
@@ -423,16 +423,16 @@
                                                 <exclude reference="5J5-eA-1EK"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <exclude reference="1Lq-3X-oRT"/>
-                                                <exclude reference="CoF-OI-FzZ"/>
-                                                <exclude reference="Mhm-1a-ltU"/>
-                                                <exclude reference="vhs-IE-UQS"/>
-                                                <exclude reference="0fP-PN-qRr"/>
-                                                <exclude reference="5Zu-sA-AZy"/>
                                                 <exclude reference="CE6-37-bsc"/>
                                                 <exclude reference="LMU-xy-lqM"/>
                                                 <exclude reference="TR8-oA-Yh7"/>
                                                 <exclude reference="XF5-cu-3h6"/>
+                                                <exclude reference="0fP-PN-qRr"/>
+                                                <exclude reference="5Zu-sA-AZy"/>
+                                                <exclude reference="1Lq-3X-oRT"/>
+                                                <exclude reference="CoF-OI-FzZ"/>
+                                                <exclude reference="Mhm-1a-ltU"/>
+                                                <exclude reference="vhs-IE-UQS"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -443,16 +443,16 @@
                                                 <include reference="5J5-eA-1EK"/>
                                             </mask>
                                             <mask key="constraints">
-                                                <include reference="1Lq-3X-oRT"/>
-                                                <include reference="CoF-OI-FzZ"/>
-                                                <include reference="Mhm-1a-ltU"/>
-                                                <include reference="vhs-IE-UQS"/>
-                                                <include reference="0fP-PN-qRr"/>
-                                                <include reference="5Zu-sA-AZy"/>
                                                 <include reference="CE6-37-bsc"/>
                                                 <include reference="LMU-xy-lqM"/>
                                                 <include reference="TR8-oA-Yh7"/>
                                                 <include reference="XF5-cu-3h6"/>
+                                                <include reference="0fP-PN-qRr"/>
+                                                <include reference="5Zu-sA-AZy"/>
+                                                <include reference="1Lq-3X-oRT"/>
+                                                <include reference="CoF-OI-FzZ"/>
+                                                <include reference="Mhm-1a-ltU"/>
+                                                <include reference="vhs-IE-UQS"/>
                                             </mask>
                                         </variation>
                                         <connections>
@@ -463,9 +463,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="OE4-3m-TpS" id="4fu-ps-ffU"/>
                                     <outlet property="delegate" destination="OE4-3m-TpS" id="6Fh-rO-3oR"/>
@@ -473,11 +470,13 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sd-FX-oMw">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.51558554290000003" green="0.24403399940000001" blue="0.064780675839999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="RO2-J3-D59"/>
                                     <constraint firstAttribute="width" constant="136" id="iPR-sT-iCD"/>
                                 </constraints>
                                 <state key="normal" title="Send this Image">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -499,6 +498,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7y7-7o-VXx" firstAttribute="top" secondItem="dTg-1P-o7j" secondAttribute="bottom" id="ACz-nF-TI1"/>
+                            <constraint firstItem="dTg-1P-o7j" firstAttribute="top" secondItem="cym-bs-gG9" secondAttribute="bottom" id="At8-oW-4Ab"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dTg-1P-o7j" secondAttribute="trailing" constant="-16" id="SdP-TY-Ln3"/>
+                            <constraint firstItem="dTg-1P-o7j" firstAttribute="leading" secondItem="8AF-Xy-7uf" secondAttribute="leadingMargin" constant="-16" id="ZhC-c9-K7j"/>
                             <constraint firstItem="7y7-7o-VXx" firstAttribute="top" secondItem="7sd-FX-oMw" secondAttribute="bottom" constant="8" id="a4W-hX-dyd"/>
                             <constraint firstAttribute="centerX" secondItem="7sd-FX-oMw" secondAttribute="centerX" id="bwo-uI-pfk"/>
                         </constraints>
@@ -508,7 +511,11 @@
                                 <exclude reference="7sd-FX-oMw"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="At8-oW-4Ab"/>
+                                <exclude reference="SdP-TY-Ln3"/>
+                                <exclude reference="ZhC-c9-K7j"/>
                                 <exclude reference="bwo-uI-pfk"/>
+                                <exclude reference="ACz-nF-TI1"/>
                                 <exclude reference="a4W-hX-dyd"/>
                             </mask>
                         </variation>
@@ -518,7 +525,11 @@
                                 <include reference="7sd-FX-oMw"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="At8-oW-4Ab"/>
+                                <include reference="SdP-TY-Ln3"/>
+                                <include reference="ZhC-c9-K7j"/>
                                 <include reference="bwo-uI-pfk"/>
+                                <include reference="ACz-nF-TI1"/>
                                 <include reference="a4W-hX-dyd"/>
                             </mask>
                         </variation>
