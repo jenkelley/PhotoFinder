@@ -75,6 +75,9 @@
     }
     self.indexPath = indexPath;
     self.collectionCell.geoCode.text = (![photo.longitude isEqualToString:@""]) ? [NSString stringWithFormat:@"(%@,%@)", photo.longitude, photo.latitude] : @"";
+    if ([self.collectionCell.geoCode.text isEqualToString:@"((null),(null))"]) {
+        self.collectionCell.geoCode.text = @"";
+    }
     self.collectionCell.captionLabel.text = photo.caption;
     self.collectionCell.likeImageView.hidden = !photo.favoriteBool;
     return self.collectionCell;
